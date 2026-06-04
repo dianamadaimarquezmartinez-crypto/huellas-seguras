@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadísticas de Visitas - Huellas Seguras</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* ==========================================
+           1. FRANJA HORIZONTAL DEL CONTADOR
+           ========================================== */
+        .franja-contador-horizontal {
+            background-color: #f4f7f4;          
+            border-bottom: 2px solid #ccd9cc;   
+            padding: 12px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .franja-contador-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;                    
+            gap: 15px;
+        }
+
+        .contador-texto-izq {
+            font-size: 1rem;
+            color: #444444;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .icono-comunidad {
+            font-size: 1.2rem;
+        }
+
+        .contador-marcador-mini {
+            background-color: #2e6f40;          
+            color: #ffffff;
+            font-family: 'Courier New', Courier, monospace; 
+            font-weight: bold;
+            font-size: 1.3rem;
+            padding: 6px 16px;
+            border-radius: 6px;
+            letter-spacing: 2px;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
+            display: inline-block;
+        }
+
+        .btn-reiniciar-mini {
+            background-color: transparent;
+            border: 1px solid #ccd9cc;
+            color: #888888;
+            padding: 4px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.75rem;
+            margin-left: 10px;
+        }
+
+        .btn-reiniciar-mini:hover {
+            background-color: #fce8e6;
+            color: #a83232;
+            border-color: #f5c2be;
+        }
+
+        /* ==========================================
+           2. ESTILOS DE LA GALERÍA DE VIDEOS
+           ========================================== */
+        .video-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            width: 100%;
+            max-width: 1160px;
+            margin: 0 auto 4rem auto;
+        }
+
+        .video-principal-box video {
+            width: 100%;
+            border-radius: 10px;
+            border: 2px solid #ccd9cc;
+            background-color: #000;
+        }
+
+        .lista-videos {
+            background-color: #ffffff;
+            border: 2px solid #ccd9cc;
+            border-radius: 10px;
+            max-height: 450px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item-video {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eef2ed;
+            cursor: pointer;
+            color: #444444;
+            font-size: 0.95rem;
+            transition: 0.2s;
+        }
+
+        .item-video:hover {
+            background-color: #f4f7f4;
+        }
+
+        .item-video.activo {
+            background-color: #eef2ed;
+            color: #2e6f40;
+            font-weight: bold;
+            border-left: 4px solid #2e6f40;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .video-layout { grid-template-columns: 1fr; }
+            .franja-contador-flex {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <header>
+        <a href="index.html" class="logo-container">
+            <img src="img/logo.png" alt="Huellas seguras" class="logo-img">
+            <span class="logo-text">Huellas Seguras</span>
+        </a>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="encabezado.html">Protegiendo huellas</a>
+            <a href="contador de visitas.html" class="active">Visitas</a>
+            <a href="descargas.html">Descargas</a>
+        </nav>
+    </header>
+
+    <!-- FRANJA HORIZONTAL DEL CONTADOR (DEBAJO DEL MENÚ) -->
+    <div class="franja-contador-horizontal">
+        <div class="container franja-contador-flex">
+            <div class="contador-texto-izq">
+                <span class="icono-comunidad">👥</span> 
+                <strong>Registro de Comunidad:</strong> Gracias por visitarnos, eres nuestro invitado número:
+            </div>
+            <div>
+                <div class="contador-marcador-mini">
+                    <span id="contador-horizontal">00000</span>
+                </div>
+                <!--<button class="btn-reiniciar-mini" onclick="reiniciarContador()">Reiniciar</button> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- CUERPO PRINCIPAL CONTENEDOR DE VIDEOS -->
+    <main class="container">
+        <h2 style="color: #2e6f40; text-align: center; margin-top: 3rem; margin-bottom: 2rem;">Galería de Videos Educativos</h2>
+
+        <div class="video-layout">
+            <!-- Reproductor Grande Principal -->
+            <div class="video-principal-box">
+                <video id="reproductor-principal" controls poster="img/logo.png">
+                    <source id="video-origen" src="videos/video1.mp4" type="video/mp4">
+                </video>
+                <h3 id="titulo-video-actual" style="color: #2e6f40; margin-top: 1rem;">Cuidemos de los animales</h3>
+            </div>
+
+            <!-- Lista de Reproducción de 10 Videos -->
+            <div class="lista-videos">
+                <div class="item-video activo" onclick="cambiarVideo(this, 'videos/video1.mp4', '1. Especies en peligro de extinción')">1. Animales en peligro de extinción</div>
+                <div class="item-video" onclick="cambiarVideo(this, 'videos/video2.mp4', '2. Los delfines rosados')">2. Los delfines rosados</div>
+                <div class="item-video" onclick="cambiarVideo(this, 'videos/video3.mp4', '3. Los humanos, flora y fauna')">3. Humanos, flora y fauna</div>
+                <div class="item-video" onclick="cambiarVideo(this, 'videos/video4.mp4', '4. Ley de protección animal')">4. Ley de protección animal</div>
+                <div class="item-video" onclick="cambiarVideo(this, 'videos/video5.mp4', '5. Scooby y huellitas')">5. Scooby y Huellitas</div>
+                <div class="item-video" onclick="cambiarVideo(this, 'videos/video6.mp4', '6. Noticias Chile')">6. Noticias Chile</div>
+                <div class="item-video" onclick="cambiarVideo(this, 'videos/video7.mp4', '7. Héroes al rescate')">7. Héroes al rescate</div>
+                <div class="item-video" onclick="cambiarVideo(this, 'videos/video8.mp4', '8. Rescates')">8. Rescates</div>
+                <div class="item-video" onclick="cambiarVideo(this, 'videos/video9.mp4', '9. El Extraño Mundo del Kakapo')">9. El Extraño Mundo del Kakapo</div>
+                <div class="item-video" onclick="cambiarVideo(this, 'videos/video10.mp4', '10. Animales en peligro de extinción')">10. Animales en peligro de extinción</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- LOGICAS DE JAVASCRIPT UNIFICADAS -->
+    <script>
+        // 1. CONTROL DE REPRODUCTOR DE VIDEOS
+        function cambiarVideo(elemento, rutaVideo, tituloVideo) {
+            const reproductor = document.getElementById('reproductor-principal');
+            const origen = document.getElementById('video-origen');
+            const titulo = document.getElementById('titulo-video-actual');
+            
+            origen.src = rutaVideo;
+            reproductor.load();
+            reproductor.play();
+            titulo.innerText = tituloVideo;
+            
+            document.querySelectorAll('.item-video').forEach(item => item.classList.remove('activo'));
+            elemento.classList.add('activo');
+        }
+
+        // 2. SISTEMA CONTADOR DE VISITAS
+        function registrarVisita() {
+            let visitas = localStorage.getItem('contador_visitas');
+
+            if (visitas === null) {
+                visitas = 1;
+            } else {
+                visitas = parseInt(visitas) + 1;
+            }
+
+            localStorage.setItem('contador_visitas', visitas);
+            let numeroFormateado = visitas.toString().padStart(5, '0');
+            
+            // Renderiza en la nueva franja horizontal superior
+            document.getElementById('contador-horizontal').innerText = numeroFormateado;
+        }
+
+        function reiniciarContador() {
+            if (confirm("¿Seguro que quieres reiniciar el contador de visitas a cero?")) {
+                localStorage.removeItem('contador_visitas');
+                document.getElementById('contador-horizontal').innerText = "00000";
+                location.reload(); 
+            }
+        }
+
+        // Inicializar contador al cargar la página
+        registrarVisita();
+    </script>
+
+                <!-- PIE DE PÁGINA -->
+    <footer>
+        <p>&copy; 2026 Huellas Seguras - Organización de Protección Animal. Todos los derechos reservados. Diana Madaí Mqz. Emir Aniceto. Jazmín Martínez.</p>
+        <p class="footer-sub">Diseñado con amor para cambiar vidas.</p>
+    </footer>
+
+</body>
+</html>
+

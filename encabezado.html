@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protegiendo Huellas - Especies en Peligro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- BARRA DE NAVEGACIÓN SUPERIOR (MENÚ VERDE RESTAURADO) -->
+    <header>
+        <a href="index.html" class="logo-container">
+            <img src="img/logo.png" alt="Huellas seguras" class="logo-img">
+            <span class="logo-text">Huellas Seguras</span>
+        </a>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="encabezado.html" class="active">Protegiendo huellas</a>
+            <a href="contador de visitas.html">Visitas</a>
+            <a href="descargas.html">Descargas</a>
+        </nav>
+    </header>
+
+    <!-- CONTENIDO DE LA PÁGINA EN PANELES -->
+    <main class="container">
+        <div class="encabezado-layout-nuevo">
+            
+            <!-- MITAD IZQUIERDA: TEXTO E INFO DEL ANIMAL -->
+            <section class="info-lado-panel">
+                <h1 id="animal-titulo">Jaguar (Panthera onca)</h1>
+                <div class="info-texto-box">
+                    <p id="animal-descripcion"> El felino más grande de todo el continente americano sufre una pérdida acelerada de sus selvas y bosques debido a la ganadería extensiva. Los constantes conflictos con rancheros defensores de su ganado, los atropellamientos en carreteras y el mercado negro emergente que codicia sus colmillos y pieles ponen en grave jaque su supervivencia a largo plazo. El jaguar es el felino más grande de América. Actualmente se encuentra en peligro debido a la destrucción de su hábitat y la caza furtiva ilegal.</p>
+                </div>
+            </section>
+
+            <!-- MITAD DERECHA: SECCIÓN MULTIMEDIA DINÁMICA -->
+            <section class="media-lado-panel">
+                
+                <!-- Recuadro Grande Principal -->
+                <div class="recuadro-principal-nuevo">
+                    <img id="foto-principal" src="img/fondo2.gif" alt="Imagen Principal">
+                </div>
+                
+                <!-- Barra Horizontal de Imágenes Menores Corregida -->
+<div class="barra-imagenes-galeria">
+    <!-- Solo el primero conserva 'active-thumb' -->
+    <img class="thumb-nueva active-thumb" src="img/Atún rojo.gif" alt="Atún rojo" 
+         data-titulo="Atún Rojo (Thunnus thynnus)"
+         data-info="Este imponente pez sufre una presión pesquera extrema debido a su alta demanda en el mercado internacional de sushi. La sobreexplotación comercial ha llevado a la especie al borde del colapso poblacional en el Atlántico. Este imponente pez sufre una presión pesquera extrema debido a su altísima demanda en el mercado internacional del sushi de lujo. La sobreexplotación comercial ilegal y no regulada ha llevado a la especie al borde del colapso poblacional en el océano Atlántico y el mar Mediterráneo, amenazando el equilibrio de los ecosistemas marinos donde actúa como un superdepredador." 
+         data-grafica="img/imagen1.png"
+         data-analisis="La población del atún rojo ha disminuido cerca de un 43% en los últimos 10 años debido a la sobre pesca. Aunque hay regulaciones, la recuperación a sido lenta." 
+         onclick="actualizarContenido(this)">
+         
+    <img class="thumb-nueva" src="img/ajolote.gif" alt="Ajolote" 
+         data-titulo="Ajolote Mexicano (Ambystoma mexicanum)" 
+         data-info="Anfibio endémico de México famoso mundialmente por su capacidad científica de regenerar extremidades, órganos y tejidos dañados. Actualmente se encuentra en peligro crítico de extinción en su hábitat natural debido a la severa contaminación del agua, la urbanización desmedida de la Ciudad de México y la introducción de especies exóticas de peces en los canales de Xochimilco. Anfibio famoso por su capacidad de regenerar extremidades. Se encuentra en peligro crítico de extinción debido a la contaminación, la introducción de especies exóticas y la pérdida de los canales de Xochimilco." 
+         data-grafica="img/imagen2.png"
+         data-analisis="La población del ajolote mexicano ha disminuido cerca de un 50% en los últimos 20 años debido a la contaminación y la pérdida de su hábitat." 
+         onclick="actualizarContenido(this)">
+         
+    <img class="thumb-nueva" src="img/Elefante asiático.gif" alt="Elefante asiático" 
+         data-titulo="Elefante Asiático (Elephas maximus)" 
+         data-info="Las mayores amenazas para este gigante terrestre son la fragmentación drástica de sus rutas migratorias ancestrales debido a la expansión agrícola, la destrucción masiva de su hábitat forestal en Asia y la caza furtiva implacable motivada por el comercio ilegal de su marfil y piel, lo que fragmenta a sus poblaciones en pequeños grupos aislados. Las mayores amenazas para este gigante son la fragmentación de sus rutas migratorias por la agricultura, la destrucción de su hábitat forestal y la caza furtiva para el comercio ilegal de marfil." 
+         data-grafica="img/imagen3.png"
+         data-analisis=" La población de elefantes asiáticos sigue en descenso por la pérdida de hábita, conflictos con humanos y casa furtiva." 
+         onclick="actualizarContenido(this)">
+         
+    <img class="thumb-nueva" src="img/Foca monje del Mediterráneo.gif" alt="Foca monje del Mediterráneo" 
+         data-titulo="Foca Monje del Mediterráneo (Monachus monachus)" 
+         data-info="Es uno de los mamíferos marinos más amenazados del planeta Tierra. El turismo masivo costero, el desarrollo inmobiliario en las playas y la persecución humana histórica las obligaron a abandonar sus playas natales de reproducción para refugiarse en cuevas marinas profundas que son sumamente propensas a derrumbes fatales y marejadas. Es uno de los mamíferos marinos más amenazados del mundo. El turismo masivo costero las obligó a abandonar sus playas natales para refugiarse en cuevas marinas propensas a derrumbes." 
+         data-grafica="img/imagen4.png"
+         data-analisis=" Su población ha mostrado una recuperación constante gracias a los programas de conservación y la protección de su hábitat Marina." 
+         onclick="actualizarContenido(this)">
+
+    <img class="thumb-nueva" src="img/gorila de montaña.gif" alt="Gorila de montaña" 
+         data-titulo="Gorila de Montaña (Gorilla beringei beringei)" 
+         data-info="Esta subespecie se ve gravemente afectada por la pérdida continua de sus bosques nublados debido a la extracción ilegal de madera, los conflictos armados en su región, la caza para el consumo de carne y el alto riesgo de contagio de enfermedades respiratorias humanas transmitidas por el turismo masivo que no está debidamente regulado. Afectado gravemente por la pérdida de bosques debido a la extracción de madera, la caza para consumo de carne y el contagio de enfermedades humanas transmitidas por el turismo no regulado." 
+         data-grafica="img/imagen5.png"
+         data-analisis="La población de gorilas de montaña ha disminuido cerca de un 50% en los últimos 20 años debido a la pérdida de su hábitat y la caza furtiva." 
+         onclick="actualizarContenido(this)">
+         
+    <img class="thumb-nueva" src="img/Guacamaya roja.gif" alt="Guacamaya roja" 
+         data-titulo="Guacamaya Roja (Ara macao)" 
+         data-info="Esta colorida e inteligente ave es víctima constante de las mafias del tráfico ilegal de mascotas exóticas debido a su plumaje vistoso, sumado a la destrucción masiva de las selvas tropicales americanas donde anida en árboles viejos, lo que reduce drásticamente sus poblaciones libres y sabotea su éxito reproductivo en la naturaleza. Esta colorida ave es víctima constante del tráfico ilegal de mascotas y la destrucción masiva de las selvas tropicales americanas donde anida, reduciendo drásticamente sus poblaciones libres." 
+         data-grafica="img/imagen6.png"
+         data-analisis=" La guacamaya roja ha aumentado su población gracias a los programas de reproducción en cautiverio y reintroducción en su hábitat natural." 
+         onclick="actualizarContenido(this)">
+         
+    <img class="thumb-nueva" src="img/Irbis.gif" alt="Irbis" 
+         data-titulo="Leopardo de las Nieves o Irbis (Panthera uncia)" 
+         data-info="Este felino fantasma habita las altas montañas de Asia central y es perseguido activamente por pastores locales en represalia por ataques a su ganado doméstico. Además, el cambio climático altera drásticamente las zonas alpinas donde caza, fragmentando su territorio y reduciendo las especies silvestres que componen su alimento principal. El cambio climático altera las zonas alpinas donde caza. Es perseguido por pastores locales en represalia por ataques a su ganado y cazado de forma ilegal por su cotizada piel." 
+         data-grafica="img/imagen7.png"
+         data-analisis=" Su población se mantiene en relativamente estable aunque sigue amenazada por la casa furtiva y el cambio climático." 
+         onclick="actualizarContenido(this)">
+         
+    <img class="thumb-nueva" src="img/Jaguar.gif" alt="Jaguar" 
+         data-titulo="Jaguar Americano (Panthera onca)" 
+         data-info=" El felino más grande de todo el continente americano sufre una pérdida acelerada de sus selvas y bosques debido a la ganadería extensiva. Los constantes conflictos con rancheros defensores de su ganado, los atropellamientos en carreteras y el mercado negro emergente que codicia sus colmillos y pieles ponen en grave jaque su supervivencia a largo plazo. El felino más grande de América sufre la pérdida de sus selvas y bosques. Conflictos con rancheros ganaderos y el comercio de sus colmillos ponen en jaque su supervivencia." 
+         data-grafica="img/imagen8.png"
+         data-analisis=" La población del Jaguar se mantiene casi estable pero la pérdida de hábitat continúa siendo su mayor amenaza." 
+         onclick="actualizarContenido(this)">
+
+    <img class="thumb-nueva" src="img/kakapo.gif" alt="Kakapo" 
+         data-titulo="Kakapo (Strigops habroptilus)" 
+         data-info="Un loro nocturno y el único no volador nativo de Nueva Zelanda que se encuentra en peligro crítico. La introducción histórica de depredadores mamíferos invasores como gatos, ratas y armiños exterminó casi la totalidad de su frágil población, obligando a los conservacionistas a trasladar a los últimos ejemplares sobrevivientes a islas libres de depredadores. Un loro nocturno no volador nativo de Nueva Zelanda. La introducción de depredadores invasores como gatos y armiños exterminó casi la totalidad de su frágil y aislada población." 
+         data-grafica="img/imagen9.png"
+         data-analisis=" Gracias a los esfuerzos de conservación en Nueva Zelanda el cacapo ha mostrado una recuperación significativa." 
+         onclick="actualizarContenido(this)">
+         
+    <img class="thumb-nueva" src="img/Lemur saltador.gif" alt="Lémur saltador" 
+         data-titulo="Lémur Saltador (Lepilemur)" 
+         data-info="Pequeño primate endémico de la isla de Madagascar cuya supervivencia pende de un hilo. Su entorno forestal se destruye continuamente mediante la quema de terrenos para la agricultura de subsistencia y la producción ilegal de carbón vegetal, dejándolo completamente expuesto a depredadores al carecer de árboles continuos para desplazarse. Endémico de la isla de Madagascar. Su entorno forestal se destruye continuamente mediante la quema para agricultura de subsistencia y la producción ilegal de carbón vegetal." 
+         data-grafica="img/imagen10.png"
+         data-analisis=" La deforestación En Madagascar Ha causado Una disminución del 50 Por ciento en su población en la última década" 
+         onclick="actualizarContenido(this)">
+         
+    <img class="thumb-nueva" src="img/Leopardo de las nieves.gif" alt="Leopardo de las nieves" 
+         data-titulo="Leopardo de las Nieves (Panthera uncia)" 
+         data-info="(Misma especie descrita en el punto del Irbis) Su población disminuye de manera alarmante por el desarrollo de infraestructuras mineras que destruyen su frágil ecosistema montañoso y la reducción de sus presas naturales, lo que lo obliga a bajar a zonas humanas donde es cazado ilegalmente por su cotizada piel.Su población en Asia central disminuye debido al desarrollo de infraestructuras mineras que destruyen su territorio y a la reducción de sus presas naturales por la competencia ganadera." 
+         data-grafica="img/imagen7.png"
+         data-analisis=" Su población se mantiene relativamente estable Aunque sigue amenazada por la caza Furtiva y el cambio climático." 
+         onclick="actualizarContenido(this)">
+         
+    <img class="thumb-nueva" src="img/Mariposa monarca.gif" alt="Mariposa monarca" 
+         data-titulo="Mariposa Monarca (Danaus plexippus)" 
+         data-info="Famosa por su espectacular migración masiva a través de Norteamérica, se enfrenta a la pérdida del algodoncillo (la única planta donde desova) debido al uso masivo de herbicidas agrícolas en Estados Unidos y Canadá, sumado a la tala ilegal de los bosques de oyamel donde hiberna en el centro de México. Su migración masiva peligra debido al uso extensivo de herbicidas que destruyen el algodoncillo (su único alimento larval) y la tala ilegal en los bosques de oyamel en México." 
+         data-grafica="img/imagen11.png"
+         data-analisis=" La superficie del bosque ocupada ha fluctuado pero en los últimos años muestra una tendencia positiva gracias a la conservación de los santuarios." 
+         onclick="actualizarContenido(this)">
+
+    <img class="thumb-nueva" src="img/Orangután de Borneo.gif" alt="Orangután de Borneo" 
+         data-titulo="Orangután de Borneo (Pongo pygmaeus)" 
+         data-info="Este gran simio asiático está perdiendo sus selvas tropicales a un ritmo catastrófico debido a los incendios forestales provocados y la deforestación masiva para dar paso a plantaciones comerciales de aceite de palma, obligándolos a desplazarse a zonas donde sufren caza o capturas ilegales de crías para el mascotismo. Sufre un declive catastrófico provocado por la conversión masiva de sus selvas nativas en plantaciones industriales de aceite de palma e incendios forestales destructivos." 
+         data-grafica="img/imagen12.png"
+         data-analisis=" La población de orangutanes de Borneo ha disminuido drásticamente debido a la pérdida de su hábitat y la caza furtiva." 
+         onclick="actualizarContenido(this)">
+         
+    <img class="thumb-nueva" src="img/Oso polar.gif" alt="Oso polar" 
+         data-titulo="Oso Polar (Ursus maritimus)" 
+         data-info="El mamífero marino icono del Ártico depende estrictamente del hielo marino para cazar focas y sobrevivir. El calentamiento global está derritiendo los polos a una velocidad sin precedentes, reduciendo su temporada de caza, obligándolos a nadar distancias mortales y a adentrarse en asentamientos humanos en busca de comida por desnutrición. El derretimiento acelerado de las capas de hielo del Ártico por el calentamiento global reduce drásticamente sus plataformas de caza, obligándolos a morir por desnutrición severa." 
+         data-grafica="img/imagen13.png"
+         data-analisis=" El cambio climático y la pérdida de hielo marino continúan afectando su capacidad de caza y reproducción." 
+         onclick="actualizarContenido(this)">
+         
+    <img class="thumb-nueva" src="img/Pangolín.gif" alt="Pangolín" 
+         data-titulo="Pangolín (Pholidota)" 
+         data-info="Es considerado el mamífero más traficado ilegalmente del mundo. Decenas de miles de ejemplares son capturados al año en África y Asia debido a la falsa creencia en la medicina tradicional asiática de que sus escamas de queratina poseen propiedades curativas mágicas, además de que su carne es considerada un platillo de estatus social. Es considerado el mamífero más traficado de forma ilegal en todo el planeta. Sus escamas de queratina son usadas erróneamente en la medicina tradicional asiática y su carne se vende como lujo." 
+         data-grafica="img/imagen14.png"
+         data-analisis=" El tráfico ilegal sigue siendo la principal amenaza para los pangolines causando una disminución sostenida." 
+         onclick="actualizarContenido(this)">
+         
+    <img class="thumb-nueva" src="img/Rinoceronte de Java.gif" alt="Rinoceronte de Java" 
+         data-titulo="Rinoceronte de Java (Rhinoceros sondaicus)" 
+         data-info="Con menos de 80 individuos viviendo en un solo parque nacional de Indonesia, es uno de los mamíferos más raros del mundo. La caza furtiva histórica por su cuerno (usado en medicina tradicional), la pérdida de diversidad genética por consanguinidad y el riesgo de enfermedades o catástrofes naturales amenazan con extinguirlo por completo. Quedan menos de 80 individuos concentrados en un solo parque nacional de Indonesia. Su baja diversidad genética y la amenaza constante de desastres naturales como tsunamis arriesgan la especie." 
+         data-grafica="img/imagen15.png"
+         data-analisis=" Los muestreos muestran menos de 80 individuos concentrados en un solo parque nacional de Indonesia." 
+         onclick="actualizarContenido(this)">
+
+    <img class="thumb-nueva" src="img/Tigre de Sumatra.gif" alt="Tigre de Sumatra" 
+         data-titulo="Tigre de Sumatra (Panthera tigris sumatrae)" 
+         data-info="Esta subespecie de tigre que sobrevive únicamente en la isla de Sumatra se encuentra acorralada en parches de selva aislados. La destrucción de su hábitat para celulosa y plantaciones de palma aceitera genera encuentros mortales con humanos, mientras que las redes de trampas furtivas buscan comerciar sus partes en el mercado negro. En peligro crítico debido a la expansión urbana, plantaciones agrícolas de palma y el conflicto directo con asentamientos humanos que reduce severamente su territorio boscoso restante." 
+         data-grafica="img/imagen16.png"
+         data-analisis=" Los esfuerzos de conservación han permitido un incremento gradual de la población aunque sigue en peligro crítico." 
+         onclick="actualizarContenido(this)">
+         
+    <img class="thumb-nueva" src="img/vaquita marina.gif" alt="Vaquita marina" 
+         data-titulo="Vaquita Marina (Phocoena sinus)" 
+         data-info="El cetáceo más pequeño y amenazado del mundo, endémico del Golfo de California en México. Quedan menos de una decena de ejemplares debido a que mueren ahogadas al quedar atrapadas de forma accidental en las redes de enmalle utilizadas para pescar ilegalmente al pez totoaba, otro animal codiciado en Asia. Es el cetáceo más pequeño del mundo y habita solo en el Golfo de California, México. Quedan muy pocos ejemplares debido a que mueren ahogadas al atorarse en redes de pesca ilegales de totoaba." 
+         data-grafica="img/imagen17.png"
+         data-analisis=" Es la especie Marina más amenazada del mundo Su población ha colapsado casi por completo debido a la pesca ilegal y la captura incidental." 
+         onclick="actualizarContenido(this)">
+</div>
+
+
+                <!-- Bloque Inferior Dividido a la Mitad (Gráfica y Texto) -->
+                <div class="bloque-inferior-grafica">
+                    <div class="sub-cuadro-grafica">
+                        <img id="grafica-analisis" src="img/grafica-jaguar.png" alt="Gráficas Estadísticas">
+                    </div>
+                    <div class="sub-cuadro-texto-grafica">
+                        <h4>Análisis de Población</h4>
+                        <p id="data-analisis">Los censos indican una reducción del 40% en su población silvestre durante los últimos 15 años en América Latina.</p>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <p>&copy; 2026 Huellas Seguras - Organización de Protección Animal. Todos los derechos reservados. Diana Madaí Mqz. Emir Aniceto. Jazmín Martínez.</p>
+        <p class="footer-sub">Diseñado con amor para cambiar vidas.</p>
+    </footer>
+
+<!-- REEMPLAZA EL SCRIPT DE ENCABEZADO.HTML POR ESTA VERSIÓN CORRECTA -->
+<script>
+// 1. FUNCIÓN PRINCIPAL: CAMBIAR EL CONTENIDO EN PANTALLA
+function actualizarContenido(elemento) {
+    if (!elemento) return;
+
+    // Cambiar la imagen principal
+    document.getElementById('foto-principal').src = elemento.src;
+    
+    // Cambiar el título y descripción del panel izquierdo
+    document.getElementById('animal-titulo').innerText = elemento.getAttribute('data-titulo');
+    document.getElementById('animal-descripcion').innerText = elemento.getAttribute('data-info');
+    
+    // Cambiar la gráfica y el texto de análisis de abajo
+    document.getElementById('grafica-analisis').src = elemento.getAttribute('data-grafica');
+    document.getElementById('texto-analisis').innerText = elemento.getAttribute('data-analisis');
+    
+    // Actualizar el indicador visual verde en las miniaturas
+    document.querySelectorAll('.thumb-nueva').forEach(thumb => {
+        thumb.classList.remove('active-thumb');
+    });
+    elemento.classList.add('active-thumb');
+}
+
+// 2. CREACIÓN DINÁMICA DEL ZOOM INTEGRADO
+function inicializarSistemaZoom() {
+    if (document.getElementById('modal-grafica-seguro')) return;
+
+    const modal = document.createElement('div');
+    modal.id = 'modal-grafica-seguro';
+    modal.style.cssText = `
+        display: none;
+        position: fixed;
+        z-index: 99999;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.9);
+        align-items: center;
+        justify-content: center;
+        cursor: zoom-out;
+    `;
+
+    modal.innerHTML = `
+        <span style="position: absolute; top: 20px; right: 35px; color: #ffffff; font-size: 50px; font-weight: bold; cursor: pointer;">&times;</span>
+        <img id="grafica-grande-segura" src="" alt="Gráfica Ampliada" style="max-width: 90%; max-height: 85vh; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); display: block; margin: auto;">
+    `;
+
+    modal.onclick = function() {
+        modal.style.display = 'none';
+    };
+
+    document.body.appendChild(modal);
+
+    const graficaPequena = document.getElementById('grafica-analisis');
+    if (graficaPequena) {
+        graficaPequena.style.cursor = 'zoom-in';
+        graficaPequena.onclick = function(e) {
+            e.stopPropagation();
+            document.getElementById('grafica-grande-segura').src = graficaPequena.src;
+            modal.style.display = 'flex';
+        };
+    }
+}
+
+// 3. AUTOMATIZACIÓN COMPLETA AL CARGAR LA PÁGINA (CORREGIDA)
+document.addEventListener('DOMContentLoaded', () => {
+    // Inicializar el Zoom seguro
+    inicializarSistemaZoom();
+
+    // LEER LA URL DE FORMA LIMPIA SIN BLOQUEAR EL NAVEGADOR
+    const parametrosUrl = new URLSearchParams(window.location.search);
+    const animalSolicitado = parametrosUrl.get('animal');
+
+    if (animalSolicitado) {
+        const miniaturas = document.querySelectorAll('.thumb-nueva');
+        let miniaturaEncontrada = null;
+
+        miniaturas.forEach(thumb => {
+            // Evaluamos tanto el atributo alt como el data-titulo para asegurar compatibilidad con tu índice
+            const altLimpio = thumb.getAttribute('alt').toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            const tituloLimpio = thumb.getAttribute('data-titulo') ? thumb.getAttribute('data-titulo').toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") : "";
+            
+            if (altLimpio.includes(animalSolicitado) || tituloLimpio.includes(animalSolicitado)) {
+                miniaturaEncontrada = thumb;
+            }
+        });
+
+        if (miniaturaEncontrada) {
+            actualizarContenido(miniaturaEncontrada);
+            // Re-sincronizar el zoom para heredar la nueva ruta de la gráfica inyectada
+            inicializarSistemaZoom();
+        }
+    }
+});
+</script>
+
+
+<!-- Cuadro flotante oculto para agrandar la gráfica -->
+<div id="modal-grafica" class="modal-zoom" onclick="cerrarZoom()">
+    <span class="modal-cerrar">&times;</span>
+    <img id="grafica-grande" class="modal-contenido" src="" alt="Gráfica Ampliada">
+</div>
+
+</body>
+</html>

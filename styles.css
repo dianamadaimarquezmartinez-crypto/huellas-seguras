@@ -1,0 +1,666 @@
+/* ==========================================
+   1. RESET Y ESTILOS GLOBALES 
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f7f9f6;
+    color: #333333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+/* ==========================================
+   2. BARRA DE NAVEGACIÓN SUPERIOR (FIJA)
+   ========================================== */
+header {
+    background-color: #2e6f40;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 50px;
+}
+
+.logo-text {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: 500;
+    transition: color 0.3s;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+nav a:hover, nav a.active {
+    color: #a3e2b1;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================
+   DISEÑO CORREGIDO BASADO EN EL BOCETO
+   ========================================== */
+
+/* Contenedor Hero superior con imagen de fondo equilibrada */
+.hero-boceto {
+    width: 100%;
+    min-height: 400px;
+    /* Reducimos el filtro blanco a 0.3 para que no tape tu paisaje */
+    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('img/fondo3.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 20px;
+    box-sizing: border-box;
+    border-bottom: 3px solid #000000; 
+}
+
+.hero-inner {
+    max-width: 800px;
+    text-align: center;
+    width: 100%;
+}
+
+.hero-titulo {
+    font-size: 2.2rem;
+    color: #2e6f40;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+}
+
+.hero-subtitulo {
+    font-size: 1.1rem;
+    color: #444444;
+    margin-bottom: 2.5rem;
+    line-height: 1.5;
+}
+
+/* Reemplaza o agrega esto al final de tu archivo styles.css */
+.hero-inner {
+    position: relative; /* OBLIGATORIO: Permite que la barra se cuelgue de aquí y no se mueva */
+}
+
+.resultados-contenedor {
+    position: absolute;         /* Flota por encima de todo el contenido de la página */
+    left: 50%;
+    transform: translateX(-50%);/* Centra perfectamente la persiana con el buscador */
+    width: 100%;
+    max-width: 650px;           /* Mismo ancho exacto que tu barra de búsqueda */
+    margin-top: 8px;            /* Pequeña separación estética hacia abajo */
+    background-color: #ffffff !important;
+    border: 3px solid #000000 !important;
+    border-radius: 8px !important;
+    max-height: 250px;
+    overflow-y: auto;           /* Si hay muchos resultados, activa barra interna */
+    text-align: left;
+    z-index: 99999 !important;  /* Obliga a la persiana a estar por encima de los botones del menú */
+    display: none;              /* El JavaScript se encarga de cambiar esto a 'block' */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2) !important;
+}
+
+/* Estilos internos de cada sugerencia */
+.resultado-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px !important;
+    padding: 14px 18px !important;
+    text-decoration: none !important;
+    color: #000000 !important;
+    border-bottom: 1px solid #eef2ed !important;
+    transition: background 0.15s;
+}
+
+.resultado-item:hover {
+    background-color: #f4f7f4 !important;
+}
+
+.resultado-item:last-child {
+    border-bottom: none !important;
+}
+
+.resultado-titulo {
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+}
+
+/* Etiquetas de color (Página, Animal, Video) */
+.resultado-tipo {
+    font-size: 0.75rem !important;
+    font-weight: bold !important;
+    padding: 4px 10px !important;
+    border-radius: 4px !important;
+    text-transform: uppercase !important;
+}
+
+.resultado-tipo.pagina { background-color: #ccd9cc !important; color: #2e6f40 !important; }
+.resultado-tipo.animal { background-color: #eef2ed !important; color: #333333 !important; border: 1px solid #ccd9cc !important; }
+.resultado-tipo.video  { background-color: #2e6f40 !important; color: #ffffff !important; }
+
+.sin-resultados-alerta {
+    padding: 15px !important;
+    color: #a83232 !important;
+    font-size: 0.95rem !important;
+    text-align: center !important;
+    font-weight: bold !important;
+}
+
+/* Buscador redondeado y centrado del boceto */
+.search-form-boceto {
+    display: flex;
+    max-width: 650px;
+    margin: 0 auto;
+    border: 3px solid #000000; /* Borde marcado idéntico al dibujo */
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.search-form-boceto input {
+    flex: 1;
+    padding: 14px 20px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+.search-form-boceto button {
+    background-color: #2e6f40;
+    color: white;
+    border: none;
+    padding: 0 24px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.search-form-boceto button:hover {
+    background-color: #21522e;
+}
+
+/* ==========================================
+   NUEVO MENÚ DE TARJETAS MODERNAS
+   ========================================== */
+.seccion-menu-moderno {
+    margin-top: 4rem;
+    margin-bottom: 5rem;
+}
+
+.titulo-menu-central {
+    font-size: 1.8rem;
+    color: #2e6f40;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+/* Contenedor flexible que apila las tarjetas limpiamente */
+.menu-tarjetas-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Tarjeta base con diseño interactivo horizontal */
+.tarjeta-enlace {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    text-decoration: none;
+    padding: 1.5rem 2rem;
+    border: 2px solid #ccd9cc;
+    border-radius: 12px; /* Esquinas redondeadas estéticas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Icono destacado a la izquierda */
+.tarjeta-icono {
+    font-size: 2.2rem;
+    margin-right: 1.5rem;
+    background-color: #f4f7f4;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+/* Textos informativos internos */
+.tarjeta-info {
+    flex: 1;
+}
+
+.tarjeta-info h3 {
+    margin: 0 0 0.4rem 0;
+    font-size: 1.3rem;
+    color: #2e6f40;
+    font-weight: bold;
+}
+
+.tarjeta-info p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #666666;
+    line-height: 1.4;
+}
+
+/* Flecha decorativa de indicación */
+.tarjeta-flecha {
+    font-size: 1.4rem;
+    color: #ccd9cc;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+/* --- EFECTOS HOVER (ANIMACIONES AL PASAR EL MOUSE) --- */
+.tarjeta-enlace:hover {
+    border-color: #2e6f40;
+    transform: translateY(-3px); /* Eleva la tarjeta suavemente */
+    box-shadow: 0 10px 20px rgba(46, 111, 64, 0.08);
+}
+
+.tarjeta-enlace:hover .tarjeta-icono {
+    transform: scale(1.1); /* Agranda el icono sutilmente */
+    background-color: #eef2ed;
+}
+
+.tarjeta-enlace:hover .tarjeta-flecha {
+    color: #2e6f40;
+    transform: translateX(5px); /* Desplaza la flecha a la derecha invitando al clic */
+}
+
+
+
+.menu-btn-rectangular h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+}
+
+/* Efecto sutil al pasar el mouse por encima */
+.menu-btn-rectangular:hover {
+    background-color: #2e6f40;
+    color: #ffffff;
+    border-color: #2e6f40;
+}
+
+/* ==========================================
+   SISTEMA DE BUSCADOR GLOBAL DESPLEGABLE
+   ========================================== */
+.resultados-contenedor {
+    position: relative;
+    max-width: 650px;
+    margin: 5px auto 0 auto;
+    background-color: #ffffff;
+    border: 3px solid #000000;
+    border-radius: 8px;
+    max-height: 250px;
+    overflow-y: auto;
+    text-align: left;
+    z-index: 100;
+    display: none; /* Se activa con JS */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+/* Cada fila de los resultados encontrados */
+.resultado-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 18px;
+    text-decoration: none;
+    color: #000000;
+    border-bottom: 1px solid #eef2ed;
+    transition: 0.15s;
+}
+
+.resultado-item:hover {
+    background-color: #f4f7f4;
+}
+
+.resultado-item:last-child {
+    border-bottom: none;
+}
+
+.resultado-titulo {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Etiquetas de tipo de archivo/contenido */
+.resultado-tipo {
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.resultado-tipo.página { background-color: #ccd9cc; color: #2e6f40; }
+.resultado-tipo.animal { background-color: #eef2ed; color: #333333; border: 1px solid #ccd9cc; }
+.resultado-tipo.video  { background-color: #2e6f40; color: #ffffff; }
+
+.sin-resultados-alerta {
+    padding: 15px;
+    color: #a83232;
+    font-size: 0.95rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+/* ==========================================
+   5. DISEÑO INTERACTIVO: PÁGINA ENCABEZADO
+   ========================================== */
+.encabezado-layout-nuevo {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2.5rem;
+    align-items: start;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.info-lado-panel {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 10px;
+    border: 2px solid #ccd9cc;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    /* Se eliminó min-height para evitar el estiramiento vertical descuidado */
+    height: 100%; /* Hace que nivele su altura automáticamente con el panel derecho */
+    box-sizing: border-box;
+}
+
+.info-lado-panel h1 {
+    font-size: 2.2rem;
+    color: #2e6f40;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #eef2ed;
+    padding-bottom: 0.5rem;
+}
+
+.info-texto-box p {
+    font-size: 1.1rem;
+    color: #444444;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+.media-lado-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    min-width: 0;       /* OBLIGATORIO: Permite que el contenedor se encoja si es necesario */
+    max-width: 100%;    /* Evita que este panel sea más grande que su columna del grid */
+}
+
+
+.recuadro-principal-nuevo {
+    width: 100%;
+    height: 340px;
+    background-color: #ffffff;
+    border: 2px solid #ccd9cc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+}
+
+.recuadro-principal-nuevo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.barra-imagenes-galeria {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-start;
+    overflow-x: auto;          /* Permite el desplazamiento horizontal */
+    white-space: nowrap;       /* Evita que las imágenes salten de línea */
+    padding: 10px 5px;
+    max-width: 100%;           /* Limita el ancho al contenedor padre */
+    box-sizing: border-box;
+    
+    /* Estilos de barra para navegadores modernos (Firefox) */
+    scrollbar-width: thin;
+    scrollbar-color: #2e6f40 #eef2ed;
+}
+
+/* Personalización de la barra de desplazamiento para Chrome, Safari y Edge */
+.barra-imagenes-galeria::-webkit-scrollbar {
+    height: 8px;               /* Grosor de la barra horizontal */
+}
+
+.barra-imagenes-galeria::-webkit-scrollbar-track {
+    background: #eef2ed;       /* Fondo del carril de la barra */
+    border-radius: 4px;
+}
+
+.barra-imagenes-galeria::-webkit-scrollbar-thumb {
+    background-color: #2e6f40; /* Color de la barra arrastrable */
+    border-radius: 4px;
+    border: 1px solid #eef2ed;
+}
+
+.barra-imagenes-galeria::-webkit-scrollbar-thumb:hover {
+    background-color: #21522e; /* Color más oscuro al pasar el mouse */
+}
+
+
+.thumb-nueva {
+    width: 75px;
+    height: 55px;
+    object-fit: cover;
+    flex-shrink: 0;            /* OBLIGATORIO: Evita que las fotos se aplasten */
+    border-radius: 6px;
+    cursor: pointer;
+    border: 2px solid #ccd9cc;
+    transition: all 0.2s ease;
+}
+
+.thumb-nueva:hover {
+    transform: scale(1.05);
+}
+
+.active-thumb {
+    border-color: #2e6f40;
+    box-shadow: 0 0 8px rgba(46, 111, 64, 0.3);
+}
+
+.bloque-inferior-grafica {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.sub-cuadro-grafica {
+    background-color: #ffffff;
+    border: 2px solid #ccd9cc;
+    border-radius: 10px;
+    height: 160px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.sub-cuadro-grafica img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.sub-cuadro-texto-grafica {
+    background-color: #ffffff;
+    border: 2px solid #ccd9cc;
+    border-radius: 10px;
+    padding: 1.2rem;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sub-cuadro-texto-grafica h4 {
+    color: #2e6f40;
+    margin-bottom: 0.5rem;
+}
+
+.sub-cuadro-texto-grafica p {
+    font-size: 0.9rem;
+    color: #666666;
+    line-height: 1.4;
+}
+
+/* ==========================================
+   6. PIE DE PÁGINA 
+   ========================================== */
+footer {
+    background-color: #2c3e50;
+    color: #ffffff;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 4rem;
+}
+
+.footer-sub {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #bdc3c7;
+}
+
+/* ==========================================
+   7. RESPONSIVE (ADAPTACIÓN MÓVIL) 
+   ========================================== */
+
+@media (max-width: 992px) {
+    .encabezado-layout-nuevo {
+        grid-template-columns: 1fr;
+    }
+    .info-lado-panel {
+        min-height: auto;
+    }
+    header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    nav a {
+        margin: 0 0.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .bloque-inferior-grafica {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*Centrar el Contenido General de la Web*/
+.container {
+    max-width: 1200px;         /* Limita el ancho de la web para que no se desparrame */
+    margin:0 auto;            /* Centra automáticamente todo el bloque en la pantalla */
+    padding: 0 20px;           /* Deja una pequeña separación de cortesía en los bordes */
+    box-sizing: border-box;
+}
+
+/*Estilos para hacer mas grande la grafica al hacer click en ella*/
+/* Hacer que la gráfica pequeña invite a dar clic */
+#grafica-analisis {
+    cursor: zoom-in;
+    transition: transform 0.2s ease;
+}
+#grafica-analisis:hover {
+    transform: scale(1.03); /* Se estira sutilmente al pasar el mouse */
+}
+
+/* Fondo oscuro del zoom (oculto por defecto) */
+.modal-zoom {
+    display: none; 
+    position: fixed;
+    z-index: 2000; /* Asegura que se ponga encima de todo el sitio */
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.85); /* Fondo negro translúcido */
+}
+
+/* Contenedor de la imagen ampliada */
+.modal-contenido {
+    margin: auto;
+    display: block;
+    max-width: 85%;
+    max-height: 80vh;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    animation: zoomEfecto 0.25s ease-out;
+}
+
+/* Animación de apertura suave */
+@keyframes zoomEfecto {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Botón de cerrar (X) */
+.modal-cerrar {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.15s;
+}
+.modal-cerrar:hover {
+    color: #ccd9cc;
+}

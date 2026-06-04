@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protección Animal - Inicio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <header>
+        <a href="index.html" class="logo-container">
+            <img src="img/logo.png" alt="Huellas seguras" class="logo-img">
+            <span class="logo-text">Huellas Seguras</span>
+        </a>
+        <nav>
+            <a href="index.html" class="active">Inicio</a>
+            <a href="encabezado.html">Protegiendo huellas</a>
+            <a href="contador de visitas.html">Visitas</a>
+            <a href="descargas.html">Descargas</a>
+        </nav>
+    </header>
+
+    <!-- PORTADA (HERO) CON IMG DE FONDO -->
+    <section class="hero-boceto">
+        <div class="hero-inner">
+            <h1 class="hero-titulo">Ellos no tienen voz, pero nos tienen a nosotros</h1>
+            <p class="hero-subtitulo">Trabajamos diariamente para rescatar, rehabilitar y encontrar hogares amorosos para animales en situación de abandono y maltrato.</p>
+            
+            <!-- BARRA DE BÚSQUEDA DEL BOCETO -->
+            <div class="search-form-boceto">
+                <input type="text" id="input-busqueda" placeholder="Buscar secciones, animales (ej: jaguar, ajolote) o videos...">
+                <button type="button" id="btn-buscar">Buscar 🔍</button>
+            </div>
+
+            <!-- CONTENEDOR DINÁMICO DE RESULTADOS (NUEVO) -->
+            <div id="resultados-busqueda" class="resultados-contenedor"></div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN MENÚ INFERIOR ASISTIDO -->
+    <main class="container">
+        <section class="seccion-menu-moderno">
+            <h2 class="titulo-menu-central">Explorar Contenido</h2>
+            
+            <div class="menu-tarjetas-grid">
+                <!-- Tarjeta 1 -->
+                <a href="encabezado.html" class="tarjeta-enlace">
+                    <div class="tarjeta-icono">🐾</div>
+                    <div class="tarjeta-info">
+                        <h3>Protegiendo Huellas</h3>
+                        <p>Explora las especies en peligro, sus amenazas y la galería interactiva.</p>
+                    </div>
+                    <span class="tarjeta-flecha">→</span>
+                </a>
+
+                <!-- Tarjeta 2 -->
+                <a href="contador de visitas.html" class="tarjeta-enlace">
+                    <div class="tarjeta-icono">📊</div>
+                    <div class="tarjeta-info">
+                        <h3>Registro de Visitas</h3>
+                        <p>Consulta las estadísticas en tiempo real y nuestra videoteca educativa.</p>
+                    </div>
+                    <span class="tarjeta-flecha">→</span>
+                </a>
+
+                <!-- Tarjeta 3 -->
+                <a href="descargas.html" class="tarjeta-enlace">
+                    <div class="tarjeta-icono">💬</div>
+                    <div class="tarjeta-info">
+                        <h3>Descargas y Asistente</h3>
+                        <p>Sube documentos locales en PDF y conversa con nuestro chatbot inteligente.</p>
+                    </div>
+                    <span class="tarjeta-flecha">→</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <p>&copy; 2026 Huellas Seguras - Organización de Protección Animal. Todos los derechos reservados.</p>
+        <p class="footer-sub">Diseñado con amor para cambiar vidas.</p>
+    </footer>
+
+    <!-- LÓGICA DEL INVENTARIO GLOBAL DE BÚSQUEDA -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const inputBusqueda = document.getElementById('input-busqueda');
+        const contenedorResultados = document.getElementById('resultados-busqueda');
+
+        // Base de datos de búsqueda
+        const indiceContenido = [
+            { titulo: "Sección: Protegiendo Huellas", tipo: "Página", link: "encabezado.html", palabras: "informacion datos animales peligro extincion especies" },
+            { titulo: "Sección: Visitas y Estadísticas", tipo: "Página", link: "contador de visitas.html", palabras: "vistas contador comunidad usuarios registrar" },
+            { titulo: "Sección: Biblioteca de Descargas y Chatbot", tipo: "Página", link: "descargas.html", palabras: "pdf material educativo guias manuales chatbot huellitas" },
+            
+            { titulo: "Jaguar Americano (Panthera onca)", tipo: "Animal", link: "encabezado.html?animal=jaguar", palabras: "jaguar felino mas grande de america selvas bosques" },
+            { titulo: "Ajolote Mexicano (Ambystoma mexicanum)", tipo: "Animal", link: "encabezado.html?animal=ajolote", palabras: "ajolote anfibio xochimilco regenerar extremidades" },
+            { titulo: "Elefante Asiático (Elephas maximus)", tipo: "Animal", link: "encabezado.html?animal=elefante", palabras: "elefante asiatico marfil rutas migratorias gigante" },
+            { titulo: "Foca Monje del Mediterráneo", tipo: "Animal", link: "encabezado.html?animal=foca", palabras: "foca monje marinos amenazados cuevas turismo costero" },
+            { titulo: "Gorila de Montaña", tipo: "Animal", link: "encabezado.html?animal=gorila", palabras: "gorila montaña bosques madera carne turismo" },
+            { titulo: "Guacamaya Roja (Ara macao)", tipo: "Animal", link: "encabezado.html?animal=guacamaya", palabras: "guacamaya roja ave colorida trafico ilegal mascotas selvas" },
+            { titulo: "Leopardo de las Nieves (Irbis)", tipo: "Animal", link: "encabezado.html?animal=leopardo", palabras: "leopardo nieves irbis alpina pastores ganado piel" },
+            { titulo: "Kakapo (Strigops habroptilus)", tipo: "Animal", link: "encabezado.html?animal=kakapo", palabras: "kakapo loro nocturno no volador nueva zelanda gatos armiños" },
+            { titulo: "Oso Polar (Ursus maritimus)", tipo: "Animal", link: "encabezado.html?animal=oso", palabras: "oso polar ursus maritimus polares hielo" },
+            { titulo: "Lémur saltador (Lepilemur)", tipo: "Animal", link: "encabezado.html?animal=lemur", palabras: "lemur saltador deforestación madagascar" },
+            { titulo: "Atún Rojo (Thunnus thynnus)", tipo: "Animal", link: "encabezado.html?animal=atun", palabras: "atun rojo pez presion pesquera sushi sobreexplotacion comercial" },
+
+            { titulo: "Video: Introducción a la Conservación", tipo: "Video", link: "contador de visitas.html", palabras: "video general introduccion cuidar planeta educacion" },
+            { titulo: "Video: El Hábitat del Jaguar", tipo: "Video", link: "contador de visitas.html", palabras: "video jaguar selva territorio corredor biologico" },
+            { titulo: "Video: Rescate del Ajolote en Xochimilco", tipo: "Video", link: "contador de visitas.html", palabras: "video ajolote canales xochimilco agua limpia" },
+            { titulo: "Video: Amenazas del Elefante Asiático", tipo: "Video", link: "contador de visitas.html", palabras: "video elefante asia marfil caza furtiva" }
+        ];
+
+        function ejecutarBusqueda() {
+            const textoUsuario = inputBusqueda.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+            
+            if (textoUsuario === "") {
+                contenedorResultados.innerHTML = "";
+                contenedorResultados.style.display = "none";
+                return;
+            }
+
+            const resultadosFiltrados = indiceContenido.filter(item => {
+                const tituloLimpio = item.titulo.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                const palabrasLimpias = item.palabras.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                return tituloLimpio.includes(textoUsuario) || palabrasLimpias.includes(textoUsuario);
+            });
+
+            if (resultadosFiltrados.length > 0) {
+                // Forzamos la visualización directa con CSS inline
+                contenedorResultados.style.display = "block";
+                contenedorResultados.innerHTML = resultadosFiltrados.map(item => {
+                    const tipoClase = item.tipo.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                    return `
+                        <a href="${item.link}" class="resultado-item">
+                            <span class="resultado-tipo ${tipoClase}">${item.tipo}</span>
+                            <span class="resultado-titulo">${item.titulo}</span>
+                        </a>
+                    `;
+                }).join('');
+            } else {
+                contenedorResultados.style.display = "block";
+                contenedorResultados.innerHTML = `<div class="sin-resultados-alerta">❌ No se encontraron resultados relacionados</div>`;
+            }
+        }
+
+        inputBusqueda.addEventListener('input', ejecutarBusqueda);
+        document.getElementById('btn-buscar').addEventListener('click', ejecutarBusqueda);
+    });
+</script>
+</body>
+</html>
+
+
