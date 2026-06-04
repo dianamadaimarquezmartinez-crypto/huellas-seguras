@@ -11,7 +11,7 @@
     <!-- BARRA DE NAVEGACIÓN SUPERIOR (MENÚ VERDE RESTAURADO) -->
     <header>
         <a href="index.html" class="logo-container">
-            <img src="img/logo.png" alt="Huellas seguras" class="logo-img">
+            <img src="logo.png" alt="Huellas seguras" class="logo-img">
             <span class="logo-text">Huellas Seguras</span>
         </a>
         <nav>
@@ -171,8 +171,6 @@
          data-analisis=" Es la especie Marina más amenazada del mundo Su población ha colapsado casi por completo debido a la pesca ilegal y la captura incidental." 
          onclick="actualizarContenido(this)">
 </div>
-
-
                 <!-- Bloque Inferior Dividido a la Mitad (Gráfica y Texto) -->
                 <div class="bloque-inferior-grafica">
                     <div class="sub-cuadro-grafica">
@@ -195,8 +193,7 @@
         <p class="footer-sub">Diseñado con amor para cambiar vidas.</p>
     </footer>
 
-<!-- REEMPLAZA EL SCRIPT DE ENCABEZADO.HTML POR ESTA VERSIÓN CORRECTA -->
-<script>
+    <script>
 // 1. FUNCIÓN PRINCIPAL: CAMBIAR EL CONTENIDO EN PANTALLA
 function actualizarContenido(elemento) {
     if (!elemento) return;
@@ -293,12 +290,9 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-
-<!-- Cuadro flotante oculto para agrandar la gráfica -->
 <div id="modal-grafica" class="modal-zoom" onclick="cerrarZoom()">
     <span class="modal-cerrar">&times;</span>
     <img id="grafica-grande" class="modal-contenido" src="" alt="Gráfica Ampliada">
 </div>
-
 </body>
 </html>
