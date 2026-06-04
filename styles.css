@@ -79,7 +79,7 @@ nav a:hover, nav a.active {
     width: 100%;
     min-height: 400px;
     /* Reducimos el filtro blanco a 0.3 para que no tape tu paisaje */
-    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('img/fondo3.gif');
+    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('fondo3.gif');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
