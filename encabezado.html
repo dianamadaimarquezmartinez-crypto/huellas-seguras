@@ -171,17 +171,16 @@
          data-analisis=" Es la especie Marina más amenazada del mundo Su población ha colapsado casi por completo debido a la pesca ilegal y la captura incidental." 
          onclick="actualizarContenido(this)">
 </div>
-                <!-- Bloque Inferior Dividido a la Mitad (Gráfica y Texto) -->
-                <div class="bloque-inferior-grafica">
-                    <div class="sub-cuadro-grafica">
-                        <img id="grafica-analisis" src="Imagen1.png" alt="Gráficas Estadísticas">
-                    </div>
-                    <div class="sub-cuadro-texto-grafica">
-                        <h4>Análisis de Población</h4>
-                        <p id="texto-analisis">Los censos indican una reducción del 40% en su población silvestre durante los últimos 15 años en América Latina.</p>
-                    </div>
-                </div>
-
+<!-- Bloque Inferior Dividido a la Mitad (Gráfica y Texto) -->
+<div class="bloque-inferior-grafica">
+    <div class="sub-cuadro-grafica">
+        <img id="grafica-analisis" src="Imagen1.png" alt="Gráficas Estadísticas">
+    </div>
+    <div class="sub-cuadro-texto-grafica">
+        <h4>Análisis de Población</h4>
+        <p id="texto-analisis">Cargando análisis de población...</p>
+    </div>
+</div>
             </section>
 
         </div>
@@ -194,7 +193,7 @@
     </footer>
 
     <script>
-// 1. FUNCIÓN PRINCIPAL: CAMBIAR EL CONTENIDO EN PANTALLA
+// 1. FUNCIÓN PRINCIPAL: CAMBIAR EL CONTENIDO EN PANTALLA (ULTRA SEGURA)
 function actualizarContenido(elemento) {
     if (!elemento) return;
 
@@ -202,12 +201,27 @@ function actualizarContenido(elemento) {
     document.getElementById('foto-principal').src = elemento.src;
     
     // Cambiar el título y descripción del panel izquierdo
-    document.getElementById('animal-titulo').innerText = elemento.getAttribute('data-titulo');
-    document.getElementById('animal-descripcion').innerText = elemento.getAttribute('data-info');
+    document.getElementById('animal-titulo').innerText = elemento.getAttribute('data-titulo') || "Especie Silvestre";
+    document.getElementById('animal-descripcion').innerText = elemento.getAttribute('data-info') || "Información en proceso de actualización.";
     
-    // Cambiar la gráfica y el texto de análisis de abajo
-    document.getElementById('grafica-analisis').src = elemento.getAttribute('data-grafica');
-    document.getElementById('texto-analisis').innerText = elemento.getAttribute('data-analisis');
+    // Cambiar la gráfica de abajo
+    const nuevaGrafica = elemento.getAttribute('data-grafica');
+    if (nuevaGrafica) {
+        document.getElementById('grafica-analisis').src = nuevaGrafica;
+    }
+    
+    // Cambiar el texto de análisis de abajo con sistema de respaldo anticaídas
+    const nuevoAnalisis = elemento.getAttribute('data-analisis');
+    const cajaTexto = document.getElementById('texto-analisis');
+    
+    if (cajaTexto) {
+        if (nuevoAnalisis && nuevoAnalisis.trim() !== "") {
+            cajaTexto.innerText = nuevoAnalisis;
+        } else {
+            // Si el HTML del animal tiene un error de comillas, extrae un resumen automático para que no se quede fijo
+            cajaTexto.innerText = "Análisis: " + (elemento.getAttribute('data-info') ? elemento.getAttribute('data-info').substring(0, 120) + "..." : "Consulte las gráficas adjuntas.");
+        }
+    }
     
     // Actualizar el indicador visual verde en las miniaturas
     document.querySelectorAll('.thumb-nueva').forEach(thumb => {
@@ -258,12 +272,10 @@ function inicializarSistemaZoom() {
     }
 }
 
-// 3. AUTOMATIZACIÓN COMPLETA AL CARGAR LA PÁGINA (CORREGIDA)
+// 3. AUTOMATIZACIÓN COMPLETA AL CARGAR LA PÁGINA
 document.addEventListener('DOMContentLoaded', () => {
-    // Inicializar el Zoom seguro
     inicializarSistemaZoom();
 
-    // LEER LA URL DE FORMA LIMPIA SIN BLOQUEAR EL NAVEGADOR
     const parametrosUrl = new URLSearchParams(window.location.search);
     const animalSolicitado = parametrosUrl.get('animal');
 
@@ -272,7 +284,6 @@ document.addEventListener('DOMContentLoaded', () => {
         let miniaturaEncontrada = null;
 
         miniaturas.forEach(thumb => {
-            // Evaluamos tanto el atributo alt como el data-titulo para asegurar compatibilidad con tu índice
             const altLimpio = thumb.getAttribute('alt').toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
             const tituloLimpio = thumb.getAttribute('data-titulo') ? thumb.getAttribute('data-titulo').toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") : "";
             
@@ -283,13 +294,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (miniaturaEncontrada) {
             actualizarContenido(miniaturaEncontrada);
-            // Re-sincronizar el zoom para heredar la nueva ruta de la gráfica inyectada
             inicializarSistemaZoom();
         }
     }
 });
 </script>
-
 <div id="modal-grafica" class="modal-zoom" onclick="cerrarZoom()">
     <span class="modal-cerrar">&times;</span>
     <img id="grafica-grande" class="modal-contenido" src="" alt="Gráfica Ampliada">
